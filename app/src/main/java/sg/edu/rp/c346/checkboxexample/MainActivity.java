@@ -31,11 +31,14 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("MyActivity", "Inside onClick()");
 
                 String message = "";
+                double pay = 0.0;
 
                 if (!cbEnabled.isChecked()) {
-                    message = "Discount not given";
+                    pay = calcPay(100,0);
+                    message = "Discount not given, you need to pay $"+pay;
                 } else {
-                    message = "Discount is given";
+                    pay = calcPay(100,20);
+                    message = "Discount is given, you need to pay $"+pay;
                     Toast.makeText(MainActivity.this, "Discount given", Toast.LENGTH_LONG).show();
                 }
 
@@ -43,7 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
 
-
+    private double calcPay(double price, double discount) {
+        double pay = price * (1 - discount / 100);
+        return pay;
     }
 }

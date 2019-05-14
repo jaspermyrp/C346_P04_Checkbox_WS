@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                     message = "Discount not given";
                 } else {
                     message = "Discount is given";
+                    Toast.makeText(MainActivity.this, "Discount given", Toast.LENGTH_LONG).show();
                 }
 
                 tvShow.setText(message);
